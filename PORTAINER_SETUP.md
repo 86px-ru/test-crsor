@@ -34,7 +34,23 @@
 
 6. **Нажмите "Deploy the stack"**
 
-## Шаг 3: Проверка
+## Шаг 3: Удаление старых контейнеров (если есть ошибка "container name already in use")
+
+Если при деплое возникает ошибка о том, что контейнер уже существует:
+
+1. **Удалите старые контейнеры:**
+   - Portainer → **Containers**
+   - Найдите контейнеры `yoga-trainer-webapp` и `yoga-trainer-bot`
+   - Нажмите на каждый контейнер → **Remove** (убедитесь, что выбрано "Remove this container")
+   - Или используйте команду в терминале:
+     ```bash
+     docker rm -f yoga-trainer-webapp yoga-trainer-bot
+     ```
+
+2. **Повторите деплой:**
+   - Portainer → **Stacks** → ваш stack → **Editor** → **Update the stack**
+
+## Шаг 4: Проверка
 
 После деплоя проверьте:
 

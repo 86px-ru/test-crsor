@@ -147,6 +147,16 @@ server {
 
 ## Troubleshooting
 
+### Проблема: "container name already in use"
+**Решение:**
+1. Удалите старые контейнеры через Portainer UI:
+   - Portainer → **Containers** → найдите `yoga-trainer-webapp` и `yoga-trainer-bot` → **Remove**
+2. Или через терминал:
+   ```bash
+   docker rm -f yoga-trainer-webapp yoga-trainer-bot
+   ```
+3. Повторите деплой
+
 ### Проблема: Web App не запускается
 - Проверьте логи: `docker logs yoga-trainer-webapp`
 - Убедитесь, что порт 3000 свободен
