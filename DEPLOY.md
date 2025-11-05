@@ -55,9 +55,15 @@ PAYMENT_PROVIDER_TOKEN=ваш_provider_token
    - Вставьте содержимое `docker-compose.yml`
    - Portainer автоматически соберет образы из Dockerfile
 
-2. **Настройте переменные окружения:**
-   - В разделе **Environment variables** добавьте все переменные из `.env`
-   - Или используйте **Environment files** для загрузки `.env`
+2. **Настройте переменные окружения (ОБЯЗАТЕЛЬНО!):**
+   - В разделе **Environment variables** добавьте все переменные вручную:
+     - `NEXT_PUBLIC_SUPABASE_URL`
+     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+     - `TELEGRAM_BOT_TOKEN`
+     - `WEB_APP_URL`
+     - `NEXT_PUBLIC_WEB_APP_URL`
+     - `PAYMENT_PROVIDER_TOKEN` (опционально)
+   - ⚠️ **Важно**: Файл `.env` не используется в Portainer, все переменные настраиваются через UI
 
 3. **Запустите Stack:**
    - Нажмите **Deploy the stack**

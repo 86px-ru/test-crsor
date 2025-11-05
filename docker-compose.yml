@@ -19,8 +19,6 @@ services:
       # Web App URL
       - NEXT_PUBLIC_WEB_APP_URL=${NEXT_PUBLIC_WEB_APP_URL:-http://localhost:3000/webapp}
       - WEB_APP_URL=${WEB_APP_URL:-http://localhost:3000/webapp}
-    env_file:
-      - .env
     networks:
       - yoga-network
     healthcheck:
@@ -44,8 +42,6 @@ services:
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
       - PAYMENT_PROVIDER_TOKEN=${PAYMENT_PROVIDER_TOKEN:-}
-    env_file:
-      - .env
     networks:
       - yoga-network
     depends_on:

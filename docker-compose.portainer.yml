@@ -11,10 +11,10 @@ services:
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
-      # Supabase (замените на ваши значения)
+      # Supabase (настройте в Environment variables в Portainer)
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
-      # Web App URL (замените на ваш домен)
+      # Web App URL (настройте в Environment variables в Portainer)
       - NEXT_PUBLIC_WEB_APP_URL=${NEXT_PUBLIC_WEB_APP_URL:-https://your-domain.com/webapp}
       - WEB_APP_URL=${WEB_APP_URL:-https://your-domain.com/webapp}
     networks:
@@ -33,6 +33,7 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+      # Настройте все переменные в Environment variables в Portainer
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - WEB_APP_URL=${WEB_APP_URL:-https://your-domain.com/webapp}
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
@@ -46,4 +47,3 @@ services:
 networks:
   yoga-network:
     driver: bridge
-

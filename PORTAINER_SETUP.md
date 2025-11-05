@@ -17,16 +17,17 @@
 
 4. **Вставьте содержимое `docker-compose.yml`** в редактор
 
-5. **Настройте Environment variables**:
-   - В разделе **Environment variables** добавьте:
+5. **Настройте Environment variables** (ОБЯЗАТЕЛЬНО!):
+   - В разделе **Environment variables** добавьте следующие переменные:
      ```
      NEXT_PUBLIC_SUPABASE_URL=https://nifazqhgougsxhivghvw.supabase.co
      NEXT_PUBLIC_SUPABASE_ANON_KEY=ваш_ключ
      TELEGRAM_BOT_TOKEN=ваш_токен
      WEB_APP_URL=https://ваш-домен.com/webapp
      NEXT_PUBLIC_WEB_APP_URL=https://ваш-домен.com/webapp
+     PAYMENT_PROVIDER_TOKEN=ваш_provider_token (опционально)
      ```
-   - Или используйте **Environment files** для загрузки `.env`
+   - ⚠️ **Важно**: Все переменные должны быть добавлены через UI Portainer, файл `.env` не используется
 
 6. **Нажмите "Deploy the stack"**
 
