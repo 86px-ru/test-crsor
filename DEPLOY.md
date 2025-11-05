@@ -57,11 +57,12 @@ PAYMENT_PROVIDER_TOKEN=ваш_provider_token
 
 2. **Настройте переменные окружения (ОБЯЗАТЕЛЬНО!):**
    - В разделе **Environment variables** добавьте все переменные вручную:
+     - `PORT` - порт для внешнего доступа (по умолчанию 3080, измените если занят)
      - `NEXT_PUBLIC_SUPABASE_URL`
      - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
      - `TELEGRAM_BOT_TOKEN`
-     - `WEB_APP_URL`
-     - `NEXT_PUBLIC_WEB_APP_URL`
+     - `WEB_APP_URL` - полный URL вашего приложения (например: `https://your-domain.com/webapp`)
+     - `NEXT_PUBLIC_WEB_APP_URL` - полный URL вашего приложения (например: `https://your-domain.com/webapp`)
      - `PAYMENT_PROVIDER_TOKEN` (опционально)
    - ⚠️ **Важно**: Файл `.env` не используется в Portainer, все переменные настраиваются через UI
 

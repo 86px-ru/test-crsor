@@ -7,7 +7,7 @@ services:
     container_name: yoga-trainer-webapp
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "${PORT:-3080}:3000"
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
@@ -15,8 +15,8 @@ services:
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
       # Web App URL (настройте в Environment variables в Portainer)
-      - NEXT_PUBLIC_WEB_APP_URL=${NEXT_PUBLIC_WEB_APP_URL:-https://your-domain.com/webapp}
-      - WEB_APP_URL=${WEB_APP_URL:-https://your-domain.com/webapp}
+      - NEXT_PUBLIC_WEB_APP_URL=${NEXT_PUBLIC_WEB_APP_URL}
+      - WEB_APP_URL=${WEB_APP_URL}
     networks:
       - yoga-network
     healthcheck:

@@ -20,6 +20,7 @@
 5. **Настройте Environment variables** (ОБЯЗАТЕЛЬНО!):
    - В разделе **Environment variables** добавьте следующие переменные:
      ```
+     PORT=3080
      NEXT_PUBLIC_SUPABASE_URL=https://nifazqhgougsxhivghvw.supabase.co
      NEXT_PUBLIC_SUPABASE_ANON_KEY=ваш_ключ
      TELEGRAM_BOT_TOKEN=ваш_токен
@@ -27,7 +28,9 @@
      NEXT_PUBLIC_WEB_APP_URL=https://ваш-домен.com/webapp
      PAYMENT_PROVIDER_TOKEN=ваш_provider_token (опционально)
      ```
-   - ⚠️ **Важно**: Все переменные должны быть добавлены через UI Portainer, файл `.env` не используется
+   - ⚠️ **Важно**: 
+     - `PORT` - порт для внешнего доступа (по умолчанию 3080, измените если занят)
+     - Все переменные должны быть добавлены через UI Portainer, файл `.env` не используется
 
 6. **Нажмите "Deploy the stack"**
 
