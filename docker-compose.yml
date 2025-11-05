@@ -17,8 +17,8 @@ services:
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
       # Web App URL
-      - NEXT_PUBLIC_WEB_APP_URL=${NEXT_PUBLIC_WEB_APP_URL:-http://localhost:${PORT:-3080}/webapp}
-      - WEB_APP_URL=${WEB_APP_URL:-http://localhost:${PORT:-3080}/webapp}
+      - NEXT_PUBLIC_WEB_APP_URL=${NEXT_PUBLIC_WEB_APP_URL}
+      - WEB_APP_URL=${WEB_APP_URL}
     networks:
       - yoga-network
     healthcheck:
@@ -38,7 +38,7 @@ services:
     environment:
       - NODE_ENV=production
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-      - WEB_APP_URL=${WEB_APP_URL:-http://localhost:${PORT:-3080}/webapp}
+      - WEB_APP_URL=${WEB_APP_URL}
       - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
       - PAYMENT_PROVIDER_TOKEN=${PAYMENT_PROVIDER_TOKEN:-}
