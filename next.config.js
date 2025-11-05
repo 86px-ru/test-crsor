@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Включаем standalone режим для Docker
+  output: 'standalone',
   images: {
     remotePatterns: [
       {

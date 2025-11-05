@@ -1,0 +1,28 @@
+# Dockerfile для Telegram бота
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Копируем package файлы
+COPY package.json package-lock.json* ./
+
+# Устанавливаем зависимости
+RUN npm ci --only=production
+
+# Копируем только файлы бота
+COPY src/bot ./src/bot
+COPY src/lib ./src/lib
+COPY tsconfig.json ./
+
+# Устанавливаем ts-node глобально для запуска TypeScript
+RUN npm install -g ts-node typescript
+
+# Создаем пользователя для запуска
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S botuser -u 1001
+
+USER botuser
+
+# Запускаем бота
+CMD ["npx", "ts-node", "src/bot/yoga-bot.ts"]
+

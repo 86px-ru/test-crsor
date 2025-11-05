@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Next.js Web App
+  webapp:
+    image: yoga-trainer-webapp:latest
+    container_name: yoga-trainer-webapp
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      # Supabase (замените на ваши значения)
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      # Web App URL (замените на ваш домен)
+      - NEXT_PUBLIC_WEB_APP_URL=${NEXT_PUBLIC_WEB_APP_URL:-https://your-domain.com/webapp}
+      - WEB_APP_URL=${WEB_APP_URL:-https://your-domain.com/webapp}
+    networks:
+      - yoga-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Telegram Bot
+  bot:
+    image: yoga-trainer-bot:latest
+    container_name: yoga-trainer-bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - WEB_APP_URL=${WEB_APP_URL:-https://your-domain.com/webapp}
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - PAYMENT_PROVIDER_TOKEN=${PAYMENT_PROVIDER_TOKEN:-}
+    networks:
+      - yoga-network
+    depends_on:
+      - webapp
+
+networks:
+  yoga-network:
+    driver: bridge
+
